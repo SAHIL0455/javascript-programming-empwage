@@ -4,20 +4,21 @@ const Is_Full_Time = 2;
 const Full_Time_Hr = 8;
 const Half_Time_Hr = 4;
 const Employee_Per_Hr_Rate = 20;
-let EmployeeWorkHr;
+let TotalEmpHr = 0;
+const Day_Of_Month = 20;
+for (let i = 1; i < Day_Of_Month; i++){
 let checkEmp = Math.floor(Math.random()*3);
-getTheWorkingHr();
-let EmployeeWage = Employee_Per_Hr_Rate*EmployeeWorkHr;
-console.log("Employye Wage is "+EmployeeWage);
-function getTheWorkingHr() {
+TotalEmpHr += getTheWorkingHr(checkEmp);
+}
+let EmployeeWage = Employee_Per_Hr_Rate*TotalEmpHr;
+console.log("Total EmpHr is = "+TotalEmpHr+"  Employye Wage is "+EmployeeWage);
+function getTheWorkingHr(checkEmp) {
 switch (checkEmp) {
     case Is_Part_Time:
-        EmployeeWorkHr = Half_Time_Hr;
-        break;
+        return Half_Time_Hr;
     case Is_Full_Time:
-        EmployeeWorkHr = Full_Time_Hr;
-        break;
+        return Full_Time_Hr;
     default:
-        EmployeeWorkHr = 0;
+        return 0;
  }
 }
